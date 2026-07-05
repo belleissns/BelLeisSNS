@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#35104f" />
+  <meta name="description" content="Bel Lei's Lye, Dye, and DIY Soap Calculator — a beautiful responsive bar soap calculator for handmade soapmakers." />
+  <title>Bel Lei's Lye, Dye, and DIY Soap Calculator</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="ambient ambient-three" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <nav class="top-nav shell" aria-label="Primary navigation">
+      <a class="brand-lockup" href="#top" aria-label="Bel Lei's Soap Calculator home">
+        <img src="assets/potion-mark.svg" alt="" class="brand-icon" />
+        <span>
+          <strong>Bel Lei's</strong>
+          <small>Lye, Dye, and DIY Soap Calculator</small>
+        </span>
+      </a>
+      <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#calculator">Calculator</a>
+        <a href="#vault">Saved Recipes</a>
+        <a href="#tiers">Pricing</a>
+        <a href="#roadmap">Roadmap</a>
+        <button class="upgrade-button" type="button" data-scroll-to="tiers">Upgrade ✦</button>
+      </div>
+    </nav>
+
+    <section class="hero shell">
+      <div class="hero-art hero-art-left" aria-hidden="true">
+        <img src="assets/floral-corner-left.svg" alt="" />
+      </div>
+      <div class="hero-art hero-art-right" aria-hidden="true">
+        <img src="assets/floral-corner-right.svg" alt="" />
+      </div>
+
+      <div class="hero-content">
+        <p class="eyebrow">Main Quest: Soaps ✦ Side Quest: Stuffs</p>
+        <h1>Beautiful soap math for makers.</h1>
+        <p class="hero-copy">
+          A whimsical apothecary-style soap calculator with accurate NaOH math, printable recipes,
+          saved batches, and a future path toward Pro and Studio tools.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#calculator">Start calculating</a>
+          <a class="button secondary" href="#tiers">See tiers</a>
+        </div>
+      </div>
+
+      <aside class="hero-card glass-card">
+        <div class="moon-badge" aria-hidden="true">☾</div>
+        <h2>Free first. Powerful later.</h2>
+        <p>Basic lye safety stays free. Paid features focus on saving, printing, pricing, and business tools.</p>
+        <ul class="hero-list">
+          <li>Responsive on phone + desktop</li>
+          <li>GitHub Pages ready</li>
+          <li>Local recipe saving</li>
+        </ul>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section class="section shell calculator-section" id="calculator">
+      <div class="section-title ornate-title">
+        <img src="assets/divider-gold.svg" alt="" aria-hidden="true" />
+        <p class="eyebrow">Let's craft some magic</p>
+        <h2>Soap Calculator</h2>
+        <p>Build a cold process bar soap recipe, choose your water method, and print a clean recipe sheet.</p>
+      </div>
+
+      <div class="app-grid">
+        <form class="panel calculator-panel" id="recipeForm">
+          <div class="panel-flower" aria-hidden="true"></div>
+          <div class="input-grid">
+            <label class="field">
+              <span>Recipe name</span>
+              <input id="recipeName" type="text" value="Lavender Dreams" autocomplete="off" />
+            </label>
+
+            <label class="field">
+              <span>Units</span>
+              <select id="unitSelect">
+                <option value="g">Grams (g)</option>
+                <option value="oz">Ounces (oz)</option>
+              </select>
+            </label>
+
+            <label class="field compact-field">
+              <span>Superfat %</span>
+              <input id="superfat" type="number" min="0" max="20" step="0.1" value="5" />
+            </label>
+          </div>
+
+          <div class="method-card">
+            <div class="method-header">
+              <div>
+                <h3>Water Setting</h3>
+                <p>Choose how you want water calculated.</p>
+              </div>
+              <span class="tiny-badge" id="waterBadge">Ratio</span>
+            </div>
+            <div class="input-grid method-grid">
+              <label class="field">
+                <span>Water method</span>
+                <select id="waterMethod">
+                  <option value="ratio">Water : lye ratio</option>
+                  <option value="concentration">Lye concentration</option>
+                  <option value="percent">Water as % of oils</option>
+                </select>
+              </label>
+
+              <label class="field method-value" id="ratioField">
+                <span>Water : lye ratio</span>
+                <input id="waterRatio" type="number" min="1.2" max="3.5" step="0.05" value="2.4" />
+              </label>
+
+              <label class="field method-value is-hidden" id="concentrationField">
+                <span>Lye concentration %</span>
+                <input id="lyeConcentration" type="number" min="25" max="45" step="0.1" value="30" />
+              </label>
+
+              <label class="field method-value is-hidden" id="percentField">
+                <span>Water as % of oils</span>
+                <input id="waterPercent" type="number" min="20" max="45" step="0.1" value="33" />
+              </label>
+            </div>
+          </div>
+
+          <div class="table-toolbar">
+            <div>
+              <h3>Oils & Butters</h3>
+              <p>Use the starter oil library or choose custom and enter your own SAP.</p>
+            </div>
+            <div class="toolbar-actions">
+              <button type="button" class="button mini" id="balanceOils">Balance oils</button>
+              <button type="button" class="button mini" id="addOil">+ Add oil</button>
+            </div>
+          </div>
+
+          <div class="oil-table-wrap" role="region" aria-label="Oils and butters table" tabindex="0">
+            <table class="oil-table">
+              <thead>
+                <tr>
+                  <th>Oil / Butter</th>
+                  <th class="number-col">%</th>
+                  <th class="number-col weight-heading">Grams</th>
+                  <th class="number-col">SAP</th>
+                  <th class="action-col"><span class="sr-only">Remove</span></th>
+                </tr>
+              </thead>
+              <tbody id="oilRows"></tbody>
+              <tfoot>
+                <tr>
+                  <td>Total</td>
+                  <td id="totalPercent">100%</td>
+                  <td id="totalOilInputWeight">950 g</td>
+                  <td colspan="2"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="fragrance-row">
+            <label class="field">
+              <span>Fragrance load % of oils</span>
+              <input id="fragranceLoad" type="number" min="0" max="10" step="0.1" value="5" />
+            </label>
+            <label class="field">
+              <span>Fragrance name</span>
+              <input id="fragranceName" type="text" value="Lavender & Chamomile" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="notes-row">
+            <label class="field">
+              <span>Batch notes</span>
+              <textarea id="batchNotes" rows="3" placeholder="Colors, design, fragrance behavior, mold, additives, cure notes..."></textarea>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button class="button primary calculate-button" type="submit">Calculate ✦</button>
+            <button class="button secondary" type="button" id="saveRecipe">Save recipe</button>
+            <button class="button ghost" type="button" id="printRecipe">Print recipe</button>
+            <button class="text-button danger" type="button" id="resetRecipe">Reset</button>
+          </div>
+        </form>
+
+        <aside class="results-column">
+          <section class="panel results-panel" aria-live="polite">
+            <div class="panel-flower right" aria-hidden="true"></div>
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Calculation results</p>
+                <h2 id="resultRecipeName">Lavender Dreams</h2>
+              </div>
+              <span class="result-seal">NaOH</span>
+            </div>
+
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <span class="metric-icon">🫧</span>
+                <span>Total oils</span>
+                <strong id="totalOils">950 g</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-icon">⚗</span>
+                <span>NaOH before superfat</span>
+                <strong id="lyeBefore">0 g</strong>
+              </div>
+              <div class="metric-card featured">
+                <span class="metric-icon">💧</span>
+                <span>NaOH needed</span>
+                <strong id="lyeNeeded">0 g</strong>
+              </div>
+              <div class="metric-card featured silver-card">
+                <span class="metric-icon">🌊</span>
+                <span>Water needed</span>
+                <strong id="waterNeeded">0 g</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-icon">🌿</span>
+                <span>Fragrance amount</span>
+                <strong id="fragranceNeeded">0 g</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-icon">✨</span>
+                <span>Estimated batter</span>
+                <strong id="batterWeight">0 g</strong>
+              </div>
+            </div>
+
+            <div class="mini-details" id="miniDetails"></div>
+            <div class="warnings" id="warnings" hidden></div>
+          </section>
+
+          <section class="panel recipe-preview-panel">
+            <div class="preview-paper" id="recipePreview">
+              <div class="preview-topline">Bel Lei's Soaps 'N Stuffs</div>
+              <h3>Lavender Dreams</h3>
+              <p>Cold Process Soap</p>
+              <div class="preview-divider"></div>
+              <div id="previewContent"></div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section vault-section shell" id="vault">
+      <div class="section-title compact-title">
+        <p class="eyebrow">Recipe vault</p>
+        <h2>Saved Recipes</h2>
+        <p>Free mode saves up to 3 recipes on this device. Studio/Pro storage is planned for later.</p>
+      </div>
+      <div class="vault-grid" id="savedRecipes"></div>
+    </section>
+
+    <section class="section tiers-section shell" id="tiers">
+      <div class="section-title ornate-title">
+        <img src="assets/divider-silver.svg" alt="" aria-hidden="true" />
+        <p class="eyebrow">Choose your adventure</p>
+        <h2>Free, Pro, and Studio</h2>
+        <p>Basic soap math should stay free. Paid tiers can unlock time-saving and business-building tools.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <span class="tier-name">Free</span>
+          <h3>Basic Calculator</h3>
+          <p class="price">$0 <small>forever</small></p>
+          <ul>
+            <li>Bar soap NaOH calculator</li>
+            <li>Water method options</li>
+            <li>Fragrance load helper</li>
+            <li>Starter oils library</li>
+            <li>Save up to 3 recipes</li>
+          </ul>
+          <button class="button ghost full-width" type="button" data-scroll-to="calculator">Use Free</button>
+        </article>
+        <article class="pricing-card pro highlighted">
+          <span class="popular-ribbon">Most likely first paid tier</span>
+          <span class="tier-name">Pro</span>
+          <h3>Maker Pro</h3>
+          <p class="price">$4.99 <small>/mo idea</small></p>
+          <ul>
+            <li>Unlimited saved recipes</li>
+            <li>Recipe scaling</li>
+            <li>Mold calculator</li>
+            <li>Custom oils and SAP library</li>
+            <li>Pretty PDF recipe sheets</li>
+          </ul>
+          <button class="button primary full-width" type="button">Coming soon</button>
+        </article>
+        <article class="pricing-card studio">
+          <span class="tier-name">Studio</span>
+          <h3>Soap Studio</h3>
+          <p class="price">$9.99 <small>/mo idea</small></p>
+          <ul>
+            <li>Cost per batch and bar</li>
+            <li>Retail/wholesale pricing helper</li>
+            <li>Ingredient inventory</li>
+            <li>Supplier tracking</li>
+            <li>Label ingredient helper</li>
+          </ul>
+          <button class="button silver full-width" type="button">Coming soon</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section roadmap-section shell" id="roadmap">
+      <div class="roadmap-card panel">
+        <div>
+          <p class="eyebrow">Build roadmap</p>
+          <h2>What comes next</h2>
+          <p>Launch the free calculator first, then add premium features once the foundation is solid.</p>
+        </div>
+        <ol class="roadmap-list">
+          <li><strong>Now:</strong> calculator, local recipe vault, print sheet, responsive design.</li>
+          <li><strong>Next:</strong> recipe scaling, mold calculator, custom oil library, prettier PDFs.</li>
+          <li><strong>Later:</strong> login, cloud recipe vault, Stripe subscriptions, Studio business tools.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <template id="oilRowTemplate">
+    <tr>
+      <td data-label="Oil / Butter">
+        <select class="oil-select" aria-label="Oil or butter"></select>
+        <input class="custom-oil is-hidden" type="text" placeholder="Custom oil name" aria-label="Custom oil name" />
+      </td>
+      <td data-label="%">
+        <input class="oil-percent-input" type="number" min="0" max="100" step="0.1" value="0" aria-label="Oil percentage" />
+      </td>
+      <td data-label="Weight">
+        <input class="oil-weight" type="number" min="0" step="0.01" value="0" aria-label="Oil weight" />
+      </td>
+      <td data-label="SAP">
+        <input class="oil-sap" type="number" min="0" step="0.001" value="0.134" aria-label="NaOH SAP value" />
+      </td>
+      <td class="remove-cell">
+        <button class="remove-oil" type="button" aria-label="Remove oil">×</button>
+      </td>
+    </tr>
+  </template>
+
+  <footer class="site-footer shell">
+    <img src="assets/divider-gold.svg" alt="" aria-hidden="true" />
+    <p>Bel Lei's Soaps 'N Stuffs ✦ Main Quest: Soaps ✦ Side Quest: Stuffs</p>
+    <p class="footer-small">Make soap. Create magic. Double-check all lye calculations before making a batch.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
