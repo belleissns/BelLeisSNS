@@ -1,33 +1,51 @@
-# Bel Lei's Lye, Dye, and DIY Soap Calculator — v3 Ingredient Library
+# Bel Lei's Lye, Dye, and DIY Soap Calculator
 
-A GitHub Pages-ready static website for Bel Lei's Soaps 'N Stuffs.
+A responsive, GitHub Pages-ready static website for a beautiful handmade soap calculator.
 
-## What's included
+## What is included
 
-- Responsive desktop + mobile layout
-- Purple, gold, and silver whimsical apothecary styling
-- Working NaOH bar soap calculator
-- Water methods: water:lye ratio, lye concentration, and water as % of oils
-- Fragrance load helper
-- Additive helper for sugar, salt, clays, milks, honey, colorants, botanicals, and exfoliants
-- Expanded searchable ingredient library
-- Hover/tap ingredient property popovers in the oil table
-- Estimated soap quality profile: hardness, cleansing, conditioning, bubbly, creamy, iodine, INS, and fatty acid profile
-- Printable recipe sheet
-- Printable ingredient library
-- Printable soap properties guide
-- Local saved recipes, limited to 3 in free mode
-- PWA-ready manifest and service worker
+- `index.html` — website/app page
+- `styles.css` — responsive purple, gold, silver, floral/apothecary styling
+- `app.js` — calculator logic, local saved recipes, print behavior
+- `assets/` — SVG graphics, floral accents, favicon, dividers, paper texture
+- `manifest.webmanifest` and `service-worker.js` — starter PWA support
 
-## Upload to GitHub Pages
+## Current features
 
-1. Create a GitHub repository.
-2. Upload the **contents** of this folder to the repository root. `index.html` should be at the top level.
-3. Go to **Settings → Pages**.
-4. Choose **Deploy from branch**.
-5. Choose `main` and `/root`.
-6. Save.
+- Bar soap NaOH calculator
+- Grams and ounces
+- Superfat percentage
+- Water:lye ratio
+- Lye concentration
+- Water as percentage of oils
+- Fragrance load calculator
+- Starter oils library with editable SAP values
+- Add/remove oil rows
+- Balance oils by percentage
+- Recipe preview
+- Print recipe sheet
+- Save up to 3 recipes locally on the device
+- Free / Pro / Studio tier preview
+- Mobile, tablet, and desktop responsive layout
 
-## Important soapmaking note
+## Important safety note
 
-This tool is a working prototype. Before using it for production batches or selling access, verify all SAP values, fatty acid profiles, usage rates, and safety notes against supplier data and soapmaking references. SAP values vary by supplier and crop/batch.
+This calculator uses standard NaOH SAP math. SAP values can vary by supplier and oil composition. Always verify recipes before making soap, wear proper PPE, and follow safe lye-handling practices.
+
+## How to use with GitHub Pages
+
+1. Create a new GitHub repository.
+2. Upload all files from this folder into the root of the repository. The `index.html` file should be at the top/root level.
+3. In GitHub, go to **Settings → Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select the `main` branch and `/root` folder.
+6. Save. GitHub will give you a live Pages link.
+
+## Recommended next build steps
+
+1. Add a mold size calculator.
+2. Add recipe scaling.
+3. Add custom saved oil library.
+4. Add prettier PDF export.
+5. Add cost-per-batch and cost-per-bar tools.
+6. Later: user accounts, cloud recipe vault, and Stripe subscriptions.
