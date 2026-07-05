@@ -49,3 +49,4 @@ This calculator uses standard NaOH SAP math. SAP values can vary by supplier and
 4. Add prettier PDF export.
 5. Add cost-per-batch and cost-per-bar tools.
 6. Later: user accounts, cloud recipe vault, and Stripe subscriptions.
+Pages refresh
